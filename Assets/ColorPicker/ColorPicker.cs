@@ -3,6 +3,8 @@ using System.Collections;
 
 public class ColorPicker : MonoBehaviour {
 
+	public GUIStyle textfield_sm;
+
 	public Texture2D colorSpace;
 	public Texture2D alphaGradient;
 	public string Title = "Color Picker";
@@ -36,7 +38,7 @@ public class ColorPicker : MonoBehaviour {
 	float alphaGradientHeight = 16;
 
 	GUIStyle titleStyle = null;
-	Color textColor = Color.black;
+	Color textColor = Color.white;
 	Texture2D txColorDisplay;
 
 	string txtR, txtG, txtB, txtA;
@@ -133,10 +135,10 @@ public class ColorPicker : MonoBehaviour {
 
 		if(mState == ESTATE.Showed)
 		{
-			txtR = GUI.TextField(new Rect(startPos.x + sizeCurr + 10, startPos.y + 30, 40, 20), txtR, 3);
-			txtG = GUI.TextField(new Rect(startPos.x + sizeCurr + 10, startPos.y + 60, 40, 20), txtG, 3);
-			txtB = GUI.TextField(new Rect(startPos.x + sizeCurr + 10, startPos.y + 90, 40, 20), txtB, 3);
-			txtA = GUI.TextField(new Rect(startPos.x + sizeCurr + 10, startPos.y + 120, 40, 20), txtA, 3);
+			txtR = GUI.TextField(new Rect(startPos.x + sizeCurr + 10, startPos.y + 30, 40, 20), txtR, 3, textfield_sm);
+			txtG = GUI.TextField(new Rect(startPos.x + sizeCurr + 10, startPos.y + 60, 40, 20), txtG, 3, textfield_sm);
+			txtB = GUI.TextField(new Rect(startPos.x + sizeCurr + 10, startPos.y + 90, 40, 20), txtB, 3, textfield_sm);
+			txtA = GUI.TextField(new Rect(startPos.x + sizeCurr + 10, startPos.y + 120, 40, 20), txtA, 3, textfield_sm);
 			valR = GUI.HorizontalSlider(new Rect(startPos.x + sizeCurr + 50, startPos.y + 35, 60, 20), valR, 0.0f, 1.0f);
 			valG = GUI.HorizontalSlider(new Rect(startPos.x + sizeCurr + 50, startPos.y + 65, 60, 20), valG, 0.0f, 1.0f);
 			valB = GUI.HorizontalSlider(new Rect(startPos.x + sizeCurr + 50, startPos.y + 95, 60, 20), valB, 0.0f, 1.0f);

@@ -51,8 +51,6 @@ public class myLocationScript : MonoBehaviour
 								Input.location.lastData.altitude);
 						working = true;
 				}
-	
-				//Input.location.Stop ();
 
 		}
 
@@ -86,9 +84,9 @@ public class myLocationScript : MonoBehaviour
 										// add new location (point) to NetworkHelper
 										mNetworkHelper.addPoint ("" + localGui.strokeName, (long)Input.location.lastData.timestamp, lastLatitude, lastLongitude, lastAltitude);
 								}
-						}
 
-						changed = false;
+								changed = false;
+						}
 				}
 		}
 
