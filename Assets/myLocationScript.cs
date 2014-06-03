@@ -57,26 +57,28 @@ public class myLocationScript : MonoBehaviour
 		float lastLongitude = -1;
 		float lastLatitude = -1;
 		float lastAltitude = -1;
-		bool changed = false;
 	
 		// Update is called once per frame
 		void Update ()
 		{
 				if (working) {
+
+			// temporary
+			localGui.addDebug ("Test Location: " + Input.location.lastData.latitude + " " +
+			                  Input.location.lastData.longitude + " " +
+			                  Input.location.lastData.altitude);
+			// end temporary
+
 						// check to see if the location has changed since last Update
 						if (lastLongitude != Input.location.lastData.longitude || lastLatitude != Input.location.lastData.latitude || lastAltitude != Input.location.lastData.altitude) {
 								lastLongitude = Input.location.lastData.longitude;
 								lastLatitude = Input.location.lastData.latitude;
 								lastAltitude = Input.location.lastData.altitude;
-								changed = true;
-						} else
-								changed = false;
 
-						if (changed) {
 								localGui.addDebug ("Location Changed: " + lastLatitude + " " +
 										lastLongitude + " " +
 										lastAltitude);
-			
+				
 								if (localGui.penDown) {
 										localGui.addDebug ("New Location Recorded: " + lastLatitude + " " +
 												lastLongitude + " " +
@@ -84,8 +86,6 @@ public class myLocationScript : MonoBehaviour
 										// add new location (point) to NetworkHelper
 										mNetworkHelper.addPoint ("" + localGui.strokeName, (long)Input.location.lastData.timestamp, lastLatitude, lastLongitude, lastAltitude);
 								}
-
-								changed = false;
 						}
 				}
 		}

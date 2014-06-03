@@ -48,7 +48,6 @@ public class myGUIScript : MonoBehaviour
 								strokeName++;
 								// give current stroke color to the stroke
 								mNetworkHelper.addStrokeColor ("" + strokeName, strokeColor);
-				
 								addDebug ("Pen on. Stroke name: " + strokeName + ", Color: " + strokeColor);
 						} else {
 								// pen is now off
@@ -69,7 +68,7 @@ public class myGUIScript : MonoBehaviour
 						cp._DrawGUI ();
 				}
 
-				penDown = GUI.Toggle (new Rect (0, 340, Screen.width / 2 - 10, 75), penDown, "Pen Down");
+				penDown = GUI.Toggle (new Rect (0, 340, Screen.width / 2 - 10, 75), penDown, "Pen");
 
 				if (GUI.Button (new Rect (Screen.width / 2 + 5, 340, Screen.width / 2 - 10, 75), "Upload")) {
 						// upload the data
@@ -79,10 +78,10 @@ public class myGUIScript : MonoBehaviour
 
 				int tempy = 440;
 				foreach (string d in debugs) {
-						GUI.Label (new Rect (0, tempy, Screen.width, 30), d);
-						tempy += 40;
+						GUI.Label (new Rect (0, tempy, Screen.width, 35), d);
+						tempy += 45;
 				}
-				while (debugs.Count > 3) {
+				while (debugs.Count > 4) {
 						debugs.RemoveAt (0);
 				}
 		}
